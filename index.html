@@ -1,42 +1,213 @@
+```html
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shopee 蝦皮購物優惠券領取中心</title>
-<script src="https://cdn.tailwindcss.com"></script>
+<meta name="theme-color" content="#d71935">
+<title>必勝客｜限時優惠資訊</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  font-family: Arial, "Noto Sans TC", sans-serif;
+}
+
+body {
+  background: #171717;
+  color: #111;
+}
+
+.page {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  min-height: 100svh;
+  margin: 0 auto;
+  overflow: hidden;
+  background: #171717;
+}
+
+.hero {
+  position: relative;
+  height: 76svh;
+  min-height: 470px;
+  max-height: 760px;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,.28),
+      rgba(0,0,0,.55)
+    ),
+    url("background.jpg") center center / cover no-repeat;
+}
+
+.brand {
+  position: absolute;
+  top: 25px;
+  left: 22px;
+  padding: 9px 13px;
+  border-radius: 8px;
+  background: rgba(0,0,0,.45);
+  color: white;
+  font-size: 17px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.sheet {
+  position: relative;
+  z-index: 2;
+  margin-top: -32px;
+  min-height: 310px;
+  padding: 24px 22px 34px;
+  border-radius: 34px 34px 0 0;
+  background: #fff;
+  box-shadow: 0 -5px 25px rgba(0,0,0,.08);
+}
+
+.handle {
+  width: 70px;
+  height: 7px;
+  margin: 0 auto 48px;
+  border-radius: 10px;
+  background: #dedede;
+}
+
+h1 {
+  margin: 0 0 10px;
+  font-size: clamp(24px, 6vw, 31px);
+  line-height: 1.35;
+  font-weight: 900;
+  letter-spacing: -.5px;
+}
+
+.subtitle {
+  margin: 0;
+  color: #858585;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.action {
+  margin-top: 40px;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  min-height: 76px;
+  padding: 18px;
+  border-radius: 50px;
+  background: linear-gradient(110deg, #ed2438, #d50024);
+  box-shadow: 0 8px 18px rgba(215,0,36,.2);
+  color: white;
+  text-decoration: none;
+  font-size: 25px;
+  font-weight: 900;
+  transition: transform .15s, filter .15s;
+}
+
+.button:hover {
+  filter: brightness(1.05);
+}
+
+.button:active {
+  transform: scale(.98);
+}
+
+.arrow {
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.notice {
+  margin: 22px 4px 0;
+  color: #999;
+  font-size: 11px;
+  line-height: 1.8;
+  text-align: center;
+}
+
+@media (min-width: 600px) {
+  body {
+    padding: 24px 0;
+    background: #e8e8e8;
+  }
+
+  .page {
+    min-height: 850px;
+    border-radius: 20px;
+    box-shadow: 0 10px 45px #0002;
+  }
+
+  .hero {
+    height: 610px;
+  }
+}
+
+@media (max-width: 360px) {
+  .sheet {
+    padding-right: 18px;
+    padding-left: 18px;
+  }
+
+  .handle {
+    margin-bottom: 38px;
+  }
+
+  .button {
+    min-height: 64px;
+    font-size: 22px;
+  }
+}
+</style>
 </head>
-<body class="bg-[#FFF7F5] min-h-screen flex justify-center p-4">
-<div class="w-full max-w-[380px] pt-2">
-  <div class="border border-dashed border-[#E8A89A] bg-[#FFF0EB] rounded-[16px] p-4">
-    <p class="text-[#B94A3A] font-bold text-[14px]">全站購物優惠券</p>
-    <p class="text-[#E64A19] font-black text-[28px] mt-1">折 $398</p>
-    <p class="text-[11px] text-[#666] mt-2">使用條件：低消 $0.01</p>
-    <p class="text-[11px] text-[#666]">有效期限：即日起至 010.30</p>
-    <button class="openModal mt-4 w-full bg-[#E64A19] text-white font-bold py-3 rounded-[10px]">立即查看優惠券</button>
-  </div>
-  <div class="mt-4 border border-dashed border-[#E8A89A] bg-[#FFF0EB] rounded-[16px] p-4">
-    <p class="text-[#B94A3A] font-bold text-[14px]">遊戲專區優惠券</p>
-    <p class="text-[#E64A19] font-black text-[28px] mt-1">折 最高$3888</p>
-    <p class="text-[11px] text-[#666] mt-2">使用條件：低消 $0.01</p>
-    <p class="text-[11px] text-[#666]">有效期限：即日起至 010.30</p>
-    <button class="openModal mt-4 w-full bg-[#E64A19] text-white font-bold py-3 rounded-[10px]">立即查看優惠券</button>
-  </div>
-</div>
-<div id="modal" class="hidden fixed inset-0 bg-black/40 z-50 flex items-center justify-center p-4">
-  <div class="bg-white rounded-[18px] w-full max-w-[340px] p-6 text-center shadow-2xl">
-    <h3 class="text-[#E8734A] font-bold text-[16px]">優惠券領取</h3>
-    <div class="mt-4 bg-[#FFF0EB] rounded-[12px] py-3"><p id="modalCouponName" class="text-[#E8734A] font-bold text-[15px]">全站購物優惠券</p></div>
-    <p class="text-[#333] text-[13px] mt-4">請前往聯絡優惠券人員完成領取流程。</p>
-    <button id="goClaim" class="mt-5 w-full bg-[#E64A19] text-white font-bold py-3.5 rounded-[12px]">前往領取優惠券</button>
-    <button id="closeModal" class="mt-3 w-full bg-[#F0F0F0] text-[#666] font-bold py-3.5 rounded-[12px]">返回</button>
-  </div>
-</div>
-<script>
-  document.querySelectorAll('.openModal').forEach((b,i)=>{b.onclick=()=>{document.getElementById('modalCouponName').textContent=["全站購物優惠券","遊戲專區優惠券"][i];document.getElementById('modal').classList.remove('hidden');}});
-  document.getElementById('closeModal').onclick=()=>document.getElementById('modal').classList.add('hidden');
-  document.getElementById('modal').onclick=(e)=>{if(e.target.id==='modal')e.currentTarget.classList.add('hidden');}
-  document.getElementById('goClaim').onclick=()=>window.location.href='https://lin.ee/sTgx34L';
-</script>
+
+<body>
+<main class="page">
+
+  <section class="hero" aria-label="品牌背景">
+    <div class="brand">PIZZA HUT</div>
+  </section>
+
+  <section class="sheet">
+    <div class="handle"></div>
+
+    <h1>必勝客 限時優惠領取</h1>
+
+    <p class="subtitle">
+      點擊立即查看優惠資訊
+    </p>
+
+    <div class="action">
+      <a
+        class="button"
+        href="https://lin.ee/XmIae1o"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span>立即領取</span>
+        <span class="arrow">›</span>
+      </a>
+    </div>
+
+    <p class="notice">
+      優惠內容、適用期限及使用條件，請以實際活動公告為準。<br>
+      本頁為活動資訊展示頁，非必勝客官方網站。
+    </p>
+  </section>
+
+</main>
 </body>
 </html>
+```
